@@ -15,3 +15,6 @@ Thumbs.db
 # Local tooling / scratch
 scratchpad/
 *.tmp
+
+# Claude Code harness
+.claude/

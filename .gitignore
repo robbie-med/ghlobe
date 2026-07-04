@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local tooling / scratch
+scratchpad/
+*.tmp

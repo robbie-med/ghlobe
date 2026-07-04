@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="topbar">
+    <div class="ctrl-group">
+      <button id="btn-projection" title="Toggle projection">🌐 Globe</button>
+    </div>
+    <div class="ctrl-group">
+      <label class="ctrl-label" data-i18n="style">Style</label>
+      <select id="sel-style">
+        <option value="atlas" data-i18n="atlas">Atlas</option>
+        <option value="satellite" data-i18n="satellite">Satellite</option>
+        <option value="satellite-borders" data-i18n="satellite-borders">Satellite + Borders</option>
+      </select>
+    </div>
+    <div class="ctrl-group">
+      <label class="ctrl-label" data-i18n="select">Select</label>
+      <select id="sel-pick">
+        <option value="auto" data-i18n="auto">Auto</option>
+        <option value="country" data-i18n="country">Country</option>
+        <option value="state" data-i18n="state">State/Province</option>
+      </select>
+    </div>
+    <div class="ctrl-group toggles">
+      <label class="toggle"><input type="checkbox" id="chk-roads"><span data-i18n="roads">Roads</span></label>
+      <label class="toggle"><input type="checkbox" id="chk-rivers"><span data-i18n="rivers">Rivers</span></label>
+    </div>
+    <div class="ctrl-group">
+      <select id="sel-lang">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="zh">中文</option>
+        <option value="fr">Français</option>
+        <option value="ar">العربية</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+    <div class="ctrl-group loading" id="loading-indicator">
+      <span data-i18n="loading">Loading data…</span>
+    </div>
+  </div>
+
+  <div id="sidebar">
+    <div id="entity-empty" data-i18n="click-hint">Click a country or US state to select it</div>
+    <div id="entity-info" style="display:none">
+      <h3 id="entity-name"></h3>
+      <div id="entity-area"></div>
+      <label><span data-i18n="color">Color</span><input type="color" id="entity-color" value="#ff6b35"></label>
+      <label><span data-i18n="opacity">Opacity</span><input type="range" id="entity-opacity" min="10" max="100" value="80"></label>
+      <button id="btn-clear" class="btn-danger" data-i18n="clear">Clear Selection</button>
+    </div>
+    <div class="sidebar-hint" data-i18n="drag-hint">Drag selected region to compare sizes</div>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
